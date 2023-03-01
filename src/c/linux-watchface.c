@@ -5,6 +5,13 @@ GBitmap *icon_bitmap;
 BitmapLayer *icon_layer;
 TextLayer *clock_text_layer, *day_text_layer, *date_text_layer, *mon_text_layer, *quote_text_layer, *slash;
 
+typedef struct ClaySettings {
+  
+} ClaySettings;
+
+ClaySettings settings;
+
+/*
 char date_buffer[4], day_buffer[6], mon_buffer[4];
 char buffer[] = "00:00";
 
@@ -33,18 +40,20 @@ void days_tick_handler(struct tm *tii, TimeUnits units_changed){
   strftime(mon_buffer, sizeof(mon_buffer), "%m", tii);
   text_layer_set_text(mon_text_layer, mon_buffer);
 }
+*/
 
 void window_load(Window *window){
   //Load bitmaps into GBitmap structures
   //The ID you chose when uploading is prefixed with 'RESOURCE_ID_'
-  icon_bitmap = gbitmap_create_with_resource(RESOURCE_ID_SPIKE_CHALK);
+  icon_bitmap = gbitmap_create_with_resource(RESOURCE_ID_arch);
    
   //Create BitmapLayers to show GBitmaps and add to Window
   //Pebble time round is 180 x 180 pixels
-  icon_layer = bitmap_layer_create(GRect(0, 0, 180, 180));
+  icon_layer = bitmap_layer_create(GRect(0, 0, 144, 168));
   bitmap_layer_set_bitmap(icon_layer, icon_bitmap);
   layer_add_child(window_get_root_layer(window), bitmap_layer_get_layer(icon_layer));
 
+  /*
   //Setting the quote TextLayer
   quote_text_layer = text_layer_create(GRect(0, 105, 180, 180));
   text_layer_set_background_color(quote_text_layer, GColorClear);
@@ -114,7 +123,7 @@ void window_load(Window *window){
   days_tick_handler(t, DAY_UNIT);
   //mon_tick_handler(t, MONTH_UNIT);
 
-   
+   */
 }
  
 void window_unload(Window *window){
@@ -146,13 +155,13 @@ void init()
   window_stack_push(window, true);
 
   //initialize the day and month buffers
-  day_buffer[0] = '\0';
-  date_buffer[0] = '\0';
-  mon_buffer[0] = '\0';
+  //day_buffer[0] = '\0';
+  //date_buffer[0] = '\0';
+  //mon_buffer[0] = '\0';
 
   //register the tick function
-  tick_timer_service_subscribe(MINUTE_UNIT, (TickHandler) tick_handler);
-  tick_timer_service_subscribe(DAY_UNIT, (TickHandler) days_tick_handler);
+  //tick_timer_service_subscribe(MINUTE_UNIT, (TickHandler) tick_handler);
+  //tick_timer_service_subscribe(DAY_UNIT, (TickHandler) days_tick_handler);
 }
  
 void deinit()
@@ -161,7 +170,7 @@ void deinit()
   window_destroy(window);
 
   //De-init the watch timer when the user is not using it to save battery!
-  tick_timer_service_unsubscribe();
+  //tick_timer_service_unsubscribe();
 }
  
 int main(void)

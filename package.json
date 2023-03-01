@@ -1,10 +1,14 @@
 {
   "name": "linux-watchface",
-  "author": "MakeAwesomeHappen",
+  "author": "jerroh",
   "version": "1.0.0",
-  "keywords": ["pebble-app"],
+  "keywords": [
+    "pebble-app"
+  ],
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "pebble-clay": "^1.0.4"
+  },
   "pebble": {
     "displayName": "linux-watchface",
     "uuid": "ee8d773c-1a9f-46c6-94f4-34f758cddf24",
@@ -17,10 +21,10 @@
       "diorite"
     ],
     "watchapp": {
-      "watchface": false
+      "watchface": true
     },
     "messageKeys": [
-      "dummy"
+      "distro"
     ],
     "resources": {
       "media": [
@@ -29,47 +33,47 @@
           "name": "arch",
           "file": "images/arch.png"
         },
-         {
+        {
           "type": "bitmap",
           "name": "fedora",
           "file": "images/fedora.png"
         },
-         {
+        {
           "type": "bitmap",
           "name": "mint",
           "file": "images/mint.png"
         },
-         {
+        {
           "type": "bitmap",
           "name": "ubuntu",
           "file": "images/ubuntu.png"
         },
-         {
+        {
           "type": "bitmap",
           "name": "centos",
           "file": "images/centos.png"
         },
-         {
+        {
           "type": "bitmap",
           "name": "freebsd",
           "file": "images/freebsd.png"
         },
-         {
+        {
           "type": "bitmap",
           "name": "slackware",
           "file": "images/slackware.png"
         },
-         {
+        {
           "type": "bitmap",
           "name": "debian",
           "file": "images/debian.png"
         },
-         {
+        {
           "type": "bitmap",
           "name": "gentoo",
           "file": "images/gentoo.png"
         },
-         {
+        {
           "type": "bitmap",
           "name": "suse",
           "file": "images/suse.png"

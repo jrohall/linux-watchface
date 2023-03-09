@@ -1,9 +1,7 @@
-const { radiogroup } = require("pebble-clay/src/scripts/components");
-
 module.exports = [
 
     {
-        "type": "header",
+        "type": "heading",
         "defaultValue": "Linux Watchface"
     },
     {
